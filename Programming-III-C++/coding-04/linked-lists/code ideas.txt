@@ -1,0 +1,13 @@
+For getting what type of case we are dealing with when we are adding or deleting a node:
+
+char dLinkedList::getCase(int id){
+    char node_case = 'c'; // c stands for "case"
+    if( (head->prev == NULL) && (id < head->data.id) )
+        node_case = 'h'; //h is for "head" case
+    else if( (id > head->data.id) && (id < head->next->data.id) )
+        node_case = 'm'; //m is for "mid" or general case
+    else if( (id > head->data.id) && (head->next == NULL) )
+        node_case = 't'; //t is for "tail" case
+
+    return node_case;
+}
